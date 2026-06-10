@@ -1,0 +1,9 @@
+# 추후 CI/CD 파이프라인으로 교체 예정
+name: placeholder
+on:
+  workflow_dispatch:
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "CI/CD 파이프라인 준비 중"
