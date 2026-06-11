@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-height: 56px;
+    --mobile-nav-height: 56px;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 터치 타겟 최소 44px — 버튼과 독립 링크 (nav, 카드 등)에만 적용 */
+  button,
+  [role='button'] {
+    @apply min-h-[44px];
+  }
+
+  nav a,
+  header a {
+    @apply min-h-[44px];
+  }
+}
+
+@layer components {
+  /* ── 본문 바로가기 (스크린 리더 + 키보드 사용자) ── */
+  .skip-link {
+    @apply absolute -top-full left-4 z-[9999] rounded-b-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-lg transition-[top] focus:top-0 focus:outline-none;
+  }
+
+  /* ── 버튼 ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white transition
+      hover:bg-primary-700
+      focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+      active:bg-primary-800
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 transition
+      hover:bg-gray-50
+      focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* ── 카드 ── */
+  .card {
+    @apply rounded-2xl bg-white p-4 shadow-sm ring-1 ring-gray-100 transition-shadow;
+  }
+
+  /* ── 배지 ── */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium leading-none;
+  }
+
+  /* ── 섹션 구분선 ── */
+  .section-title {
+    @apply mb-3 border-b border-gray-100 pb-2 text-sm font-bold text-gray-900;
+  }
+}
